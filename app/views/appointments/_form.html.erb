@@ -48,7 +48,7 @@
 <% end %>
 
 
-<script>
+<script type="text/javascript">
 	$(function() {
 
 		$('#appointment_date').datepicker({
@@ -58,11 +58,25 @@
         $('#appointment_time').timepicker({
         	'minTime': '8:00pm',
         	'maxTime': '4:30pm'});
+		
+		$("#appointment_date, #appointment_time").on("change", function(){
+			var time = $("#appointment_time").val();
+			var date = $("#appointment_date").val();
+
+			$.ajax({
+				url: "/check_date_time",
+				data: "date="+date+"&time="+time,
+				success: function(res){
+					if(res.status == false){
+						alert("Date Time already allocated. Please select another time.")
+						$("#appointment_time").val("");
+						$("#appointment_date").val("");
+					}
+				}
+			})
+
+		})	
 
 	});
-	
-
-});
-
-	
+		
 </script>
