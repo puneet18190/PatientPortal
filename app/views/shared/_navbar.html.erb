@@ -35,7 +35,7 @@
           <% end %>
         </li>
         <% if(user_signed_in?) %>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: 'delete' %></li>
         <% end %>
         <li>
           <%= link_to new_practice_path do %>

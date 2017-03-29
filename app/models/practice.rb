@@ -20,6 +20,10 @@ class Practice < ActiveRecord::Base
  end
 
   def self.search(search)
-    where("speciality LIKE ? OR zip_code LIKE ? ", "%#{search}%", "%#{search}%") 
+    if Rails.env.production?
+      where("speciality ilike ? OR zip_code::text ilike ?", "%#{search}%", "%#{search}%")
+    else
+      where("speciality like ? OR zip_code like ?", "%#{search}%", "%#{search}%")
+    end
   end 
 end
