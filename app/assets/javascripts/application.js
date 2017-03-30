@@ -15,6 +15,7 @@
 //= require jquery.timepicker.js
 //= require bootstrap-sprockets
 //= require toastr
+//= require newWaterfall
 //= require_tree .
 
 

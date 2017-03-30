@@ -359,3 +359,26 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 .ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
   background: #f2f2f2;
 }
+
+#waterfall { margin: 10px; }
+
+#waterfall li {
+  /*position: absolute;*/
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+#waterfall li.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s, top 1s;
+}
+
+#waterfall li > div:hover {
+  transform: translateY(-10px);
+  border: 1px solid rgba(038, 191, 64, 1);
+  box-shadow: 0 10px 15px rgba(038, 191, 64, 0.1);
+  transition: all 0.3s;
+}
